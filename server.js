@@ -14,15 +14,21 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-mongoose.connect("mongodb://localhost/budget", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-  useFindAndModify: false
+mongoose.connect(
+  process.env.MONGODB_URI || 'mongodb://localhost/budget',
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+  }
+).then(() => {
+  console.log('Connected to MongoDB')
+}).catch(error => {
+  console.log(error);
 });
-
 // Creating and importing routes
-require("./routes/api-routes")(app);
+require("./routes/api")(app);
 require("./routes/html-routes")(app);
 
 
