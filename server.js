@@ -3,8 +3,9 @@ const logger = require("morgan");
 const mongoose = require("mongoose");
 const compression = require("compression");
 
-const app = express();
+
 const PORT = process.env.PORT || 8080;
+const app = express();
 
 app.use(logger("dev"));
 
@@ -14,22 +15,16 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-mongoose.connect(
-  process.env.MONGODB_URI || 'mongodb://localhost/budget',
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false
-  }
-).then(() => {
-  console.log('Connected to MongoDB')
-}).catch(error => {
-  console.log(error);
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/budget", {
+	useNewUrlParser: true,
+	useUnifiedTopology: true,
+	useCreateIndex: true,
+	useFindAndModify: false,
 });
+
 // Creating and importing routes
-require("./routes/api")(app);
-require("./routes/html-routes")(app);
+require("./routes/api.js")(app);
+require("./routes/html-routes.js")(app);
 
 
 app.listen(PORT, () => {
