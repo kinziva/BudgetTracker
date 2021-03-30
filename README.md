@@ -57,17 +57,4 @@ Contact with me with any questions : [GitHub](https://github.com/kinziva)<br />
 
 ## Urls
 * Repository [Repository URL ](https://github.com/kinziva/BudgetTracker)
-* Heroku [Repository URL ]()
-
-
-
-* Deploy your application with [Heroku and MongoDB Atlas.](../04-Important/MongoAtlas-Deploy.md)
-
-
-- - -
-
-## Hint
-
-* In order to cache dynamic content, i.e. users' inputs for withdrawals or deposits, incorporate `indexedDB` from the previous module.
-
-* Use [Google](https://www.google.com) or another search engine to research this topic.
+* Heroku [Repository URL ](https://agile-taiga-28351.herokuapp.com/)
